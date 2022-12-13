@@ -85,12 +85,33 @@ public class Board : MonoBehaviour
         Vector2 endPoint = linePoints[1];
 
         LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();
-        Color myColor = new Color(0.3f, 0.3f, 0.3f, 0.8f);
+        Color myColor = new Color(0.3f, 0.3f, 0.3f);
         lineRenderer.material = lineMaterial;
         lineRenderer.startColor = myColor;
         lineRenderer.endColor = myColor;
-        lineRenderer.startWidth = 0.1f;
+        lineRenderer.startWidth = 0.05f;
+        lineRenderer.numCornerVertices = 10;
+        lineRenderer.numCapVertices = 10;
         lineRenderer.SetPosition(0, startPoint);
         lineRenderer.SetPosition(1, endPoint);
+
+        StartCoroutine(AnimateLine(lineRenderer));
+    }
+
+    IEnumerator AnimateLine(LineRenderer line)
+    {
+        float startTime = Time.time, animationDuration = 0.4f;
+
+        Vector2 startPoint = line.GetPosition(0);
+        Vector2 endPoint = line.GetPosition(1);
+
+        Vector2 pos = startPoint;
+        while (pos != endPoint)
+        {
+            float t = (Time.time - startTime) / animationDuration;
+            pos = Vector2.Lerp(startPoint, endPoint, t);
+            line.SetPosition(1, pos);
+            yield return null;
+        }
     }
 }

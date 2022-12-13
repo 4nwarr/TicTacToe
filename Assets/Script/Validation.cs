@@ -33,37 +33,37 @@ public static class Validation
         //columns
         if (matrix[0, 0] && matrix[0, 1] && matrix[0, 2])
         {
-            trisPoints[0] = new Vector2(0, -0.25f);
-            trisPoints[1] = new Vector2(0, 2.25f);
+            trisPoints[0] = new Vector2(0, 2.25f);
+            trisPoints[1] = new Vector2(0, -0.25f);
             return trisPoints;
         }
 
         if (matrix[1, 0] && matrix[1, 1] && matrix[1, 2])
         {
-            trisPoints[0] = new Vector2(1, -0.25f);
-            trisPoints[1] = new Vector2(1, 2.25f);
+            trisPoints[0] = new Vector2(1, 2.25f);
+            trisPoints[1] = new Vector2(1, -0.25f);
             return trisPoints;
         }
 
         if (matrix[2, 0] && matrix[2, 1] && matrix[2, 2])
         {
-            trisPoints[0] = new Vector2(2, -0.25f);
-            trisPoints[1] = new Vector2(2, 2.25f);
+            trisPoints[0] = new Vector2(2, 2.25f);
+            trisPoints[1] = new Vector2(2, -0.25f);
             return trisPoints;
         }
 
         //Diagonals
         if (matrix[0, 0] && matrix[1, 1] && matrix[2, 2])
         {
-            trisPoints[0] = new Vector2(-0.25f, -0.25f);
-            trisPoints[1] = new Vector2(2.25f, 2.25f);
+            trisPoints[0] = new Vector2(2.25f, 2.25f);
+            trisPoints[1] = new Vector2(-0.25f, -0.25f);
             return trisPoints;
         }
 
         if (matrix[2, 0] && matrix[1, 1] && matrix[0, 2])
         {
-            trisPoints[0] = new Vector2(2.25f, -0.25f);
-            trisPoints[1] = new Vector2(-0.25f, 2.25f);
+            trisPoints[0] = new Vector2(-0.25f, 2.25f);
+            trisPoints[1] = new Vector2(2.25f, -0.25f);
             return trisPoints;
         }
 
